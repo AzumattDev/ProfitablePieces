@@ -14,7 +14,7 @@ namespace ProfitablePieces
     public class ProfitablePiecesPlugin : BaseUnityPlugin
     {
         internal const string ModName = "ProfitablePieces";
-        internal const string ModVersion = "1.0.0";
+        internal const string ModVersion = "1.0.1";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -46,7 +46,7 @@ namespace ProfitablePieces
 
             AlwaysDropResources = config("2 - Building", "Always Drop Resources", Toggle.On,
                 "When destroying a building piece, setting this to true will ensure it always drops full resources.");
-            AlwaysDropExcludedResources = config("2 - Building", "Always Drop Resources", Toggle.On,
+            AlwaysDropExcludedResources = config("2 - Building", "Always Drop Excluded Resources", Toggle.On,
                 "When destroying a building piece, setting this to true will ensure it always drops pieces that the Valheim devs have marked as \"do not drop\".");
 
             Assembly assembly = Assembly.GetExecutingAssembly();

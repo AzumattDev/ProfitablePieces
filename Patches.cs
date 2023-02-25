@@ -48,7 +48,7 @@ public static class PieceDropResourcesTranspiler
             }
         }
 
-        if (ProfitablePiecesPlugin.AlwaysDropExcludedResources.Value == ProfitablePiecesPlugin.Toggle.Off)
+        if (ProfitablePiecesPlugin.AlwaysDropExcludedResources.Value == ProfitablePiecesPlugin.Toggle.On)
         {
             // Patch out the m_recover check.
             for (int i = 0; i < il.Count; ++i)

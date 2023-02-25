@@ -43,6 +43,7 @@ For Questions or Comments, find me in the Odin Plus Team Discord or in mine:
 
 > # Update Information (Latest listed first)
 
-| `Version` | `Update Notes`    |
-|-----------|-------------------|
-| 1.0.0     | - Initial Release |
+| `Version` | `Update Notes`                                                                                                                                      |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1.0.1     | - Fix a bug caused by me copying my configuration bind. Resulting in the Always Excluded Drop Resources setting to not even be created/take effect. |
+| 1.0.0     | - Initial Release                                                                                                                                   |
