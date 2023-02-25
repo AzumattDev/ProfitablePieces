@@ -21,6 +21,9 @@
 ### [cstamford on Github](https://github.com/cstamford) for the original patch code. This mod is using his original code and is being uploaded as a modular replacement mod.
 
 
+### Source code
+https://github.com/AzumattDev/ProfitablePieces
+
 `Feel free to reach out to me on discord if you need manual download assistance.`
 
 
