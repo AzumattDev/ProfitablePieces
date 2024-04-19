@@ -14,7 +14,7 @@ namespace ProfitablePieces
     public class ProfitablePiecesPlugin : BaseUnityPlugin
     {
         internal const string ModName = "ProfitablePieces";
-        internal const string ModVersion = "1.0.2";
+        internal const string ModVersion = "1.0.3";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -22,8 +22,7 @@ namespace ProfitablePieces
         internal static string ConnectionError = "";
         private readonly Harmony _harmony = new(ModGUID);
 
-        public static readonly ManualLogSource ProfitablePiecesLogger =
-            BepInEx.Logging.Logger.CreateLogSource(ModName);
+        public static readonly ManualLogSource ProfitablePiecesLogger = BepInEx.Logging.Logger.CreateLogSource(ModName);
 
         internal static readonly ConfigSync ConfigSyncVar = new(ModGUID)
             { DisplayName = ModName, CurrentVersion = ModVersion, MinimumRequiredVersion = ModVersion };
@@ -36,16 +35,14 @@ namespace ProfitablePieces
 
         public void Awake()
         {
-            _serverConfigLocked = config("1 - General", "Lock Configuration", Toggle.On,
-                new ConfigDescription("If on, the configuration is locked and can be changed by server admins only.", null, new ConfigurationManagerAttributes() { Order = 3 }));
+            _serverConfigLocked = config("1 - General", "Lock Configuration", Toggle.On, new ConfigDescription("If on, the configuration is locked and can be changed by server admins only.", null, new ConfigurationManagerAttributes() { Order = 3 }));
             _ = ConfigSyncVar.AddLockingConfigEntry(_serverConfigLocked);
 
             ModEnabled = config("1 - General", "Mod Enabled", Toggle.On, new ConfigDescription("If turned off, the mod will not run the code change to return the resources used to build the piece. This affects both admins and non-admins. Basically, if you turn this off, the mod will do nothing.", null, new ConfigurationManagerAttributes() { Order = 2 }));
             AdminOnly = config("1 - General", "Admin Only", Toggle.Off, new ConfigDescription("If turned on, only admins will be able to see this mod's benefits of always giving back resources.", null, new ConfigurationManagerAttributes() { Order = 1 }));
 
 
-            AlwaysDropResources = config("2 - Building", "Always Drop Resources", Toggle.On,
-                "When destroying a building piece, setting this to true will ensure it always drops full resources.");
+            AlwaysDropResources = config("2 - Building", "Always Drop Resources", Toggle.On, "When destroying a building piece, setting this to true will ensure it always drops full resources.");
             AlwaysDropExcludedResources = config("2 - Building", "Always Drop Excluded Resources", Toggle.On,
                 "When destroying a building piece, setting this to true will ensure it always drops pieces that the Valheim devs have marked as \"do not drop\".");
 
