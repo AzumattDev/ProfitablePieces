@@ -9,11 +9,9 @@ namespace ProfitablePieces;
 [HarmonyPatch(typeof(Piece), nameof(Piece.DropResources))]
 public static class PieceDropResourcesTranspiler
 {
-    private static MethodInfo _methodPieceIsPlacedByPlayer =
-        AccessTools.Method(typeof(Piece), nameof(Piece.IsPlacedByPlayer));
+    private static MethodInfo _methodPieceIsPlacedByPlayer = AccessTools.Method(typeof(Piece), nameof(Piece.IsPlacedByPlayer));
 
-    private static FieldInfo _fieldRequirementMRecover =
-        AccessTools.Field(typeof(Piece.Requirement), nameof(Piece.Requirement.m_recover));
+    private static FieldInfo _fieldRequirementMRecover = AccessTools.Field(typeof(Piece.Requirement), nameof(Piece.Requirement.m_recover));
 
     /// <summary>
     /// This transpiler does two things:

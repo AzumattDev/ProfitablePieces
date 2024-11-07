@@ -14,18 +14,15 @@ namespace ProfitablePieces
     public class ProfitablePiecesPlugin : BaseUnityPlugin
     {
         internal const string ModName = "ProfitablePieces";
-        internal const string ModVersion = "1.0.3";
+        internal const string ModVersion = "1.0.4";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
         private static string ConfigFileFullPath = Paths.ConfigPath + Path.DirectorySeparatorChar + ConfigFileName;
         internal static string ConnectionError = "";
         private readonly Harmony _harmony = new(ModGUID);
-
         public static readonly ManualLogSource ProfitablePiecesLogger = BepInEx.Logging.Logger.CreateLogSource(ModName);
-
-        internal static readonly ConfigSync ConfigSyncVar = new(ModGUID)
-            { DisplayName = ModName, CurrentVersion = ModVersion, MinimumRequiredVersion = ModVersion };
+        internal static readonly ConfigSync ConfigSyncVar = new(ModGUID) { DisplayName = ModName, CurrentVersion = ModVersion, MinimumRequiredVersion = ModVersion };
 
         public enum Toggle
         {
@@ -43,8 +40,7 @@ namespace ProfitablePieces
 
 
             AlwaysDropResources = config("2 - Building", "Always Drop Resources", Toggle.On, "When destroying a building piece, setting this to true will ensure it always drops full resources.");
-            AlwaysDropExcludedResources = config("2 - Building", "Always Drop Excluded Resources", Toggle.On,
-                "When destroying a building piece, setting this to true will ensure it always drops pieces that the Valheim devs have marked as \"do not drop\".");
+            AlwaysDropExcludedResources = config("2 - Building", "Always Drop Excluded Resources", Toggle.On, "When destroying a building piece, setting this to true will ensure it always drops pieces that the Valheim devs have marked as \"do not drop\".");
 
             Assembly assembly = Assembly.GetExecutingAssembly();
             _harmony.PatchAll(assembly);
@@ -91,14 +87,9 @@ namespace ProfitablePieces
         internal static ConfigEntry<Toggle> AlwaysDropResources = null!;
         internal static ConfigEntry<Toggle> AlwaysDropExcludedResources = null!;
 
-        private ConfigEntry<T> config<T>(string group, string name, T value, ConfigDescription description,
-            bool synchronizedSetting = true)
+        private ConfigEntry<T> config<T>(string group, string name, T value, ConfigDescription description, bool synchronizedSetting = true)
         {
-            ConfigDescription extendedDescription =
-                new(
-                    description.Description +
-                    (synchronizedSetting ? " [Synced with Server]" : " [Not Synced with Server]"),
-                    description.AcceptableValues, description.Tags);
+            ConfigDescription extendedDescription = new(description.Description + (synchronizedSetting ? " [Synced with Server]" : " [Not Synced with Server]"), description.AcceptableValues, description.Tags);
             ConfigEntry<T> configEntry = Config.Bind(group, name, value, extendedDescription);
             //var configEntry = Config.Bind(group, name, value, description);
 
@@ -108,8 +99,7 @@ namespace ProfitablePieces
             return configEntry;
         }
 
-        private ConfigEntry<T> config<T>(string group, string name, T value, string description,
-            bool synchronizedSetting = true)
+        private ConfigEntry<T> config<T>(string group, string name, T value, string description, bool synchronizedSetting = true)
         {
             return config(group, name, value, new ConfigDescription(description), synchronizedSetting);
         }

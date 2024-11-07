@@ -1,6 +1,6 @@
 {
   "name": "ProfitablePieces",
-  "version_number": "1.0.3",
+  "version_number": "1.0.4",
   "website_url": "https://github.com/AzumattDev/ProfitablePieces",
   "description": "Always return resources when destroying a building piece. Optionally include those disabled by the Valheim Devs. Limit this to only admin, if you want.",
   "dependencies": [
